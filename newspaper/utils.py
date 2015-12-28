@@ -294,7 +294,7 @@ def memoize_articles(source, articles):
         f.close()
         urls = [u.strip() for u in urls]
 
-        memo = {url: True for url in urls}
+        memo = dict([(url, True) for url in urls])
         # prev_length = len(memo)
         for url, article in cur_articles.items():
             if memo.get(url):
