@@ -268,7 +268,7 @@ def memoize_articles(source, articles):
         return []
 
     memo = {}
-    cur_articles = {article.url: article for article in articles}
+    cur_articles = dict([(article.url, article) for article in articles])
     d_pth = os.path.join(settings.MEMO_DIR, domain_to_filename(source_domain))
 
     if os.path.exists(d_pth):
