@@ -12,7 +12,6 @@ import logging
 import math
 import io
 import traceback
-import urllib.request
 import urllib.parse
 import urllib.error
 
@@ -86,6 +85,7 @@ def clean_url(url):
 
 
 def fetch_url(url, useragent, referer=None, retries=1, dimension=False):
+    import urllib.request
     cur_try = 0
     nothing = None if dimension else (None, None)
     url = clean_url(url)
