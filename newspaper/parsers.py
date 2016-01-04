@@ -22,7 +22,6 @@ log = logging.getLogger(__name__)
 
 
 class Parser(object):
-
     @classmethod
     def xpath_re(cls, node, expression):
         regexp_namespace = "http://exslt.org/regular-expressions"
@@ -64,10 +63,17 @@ class Parser(object):
         article_cleaner.style = True
         article_cleaner.allow_tags = [
             'a', 'span', 'p', 'br', 'strong', 'b',
+            'footer', 'header', 'article', 'section',
             'em', 'i', 'tt', 'code', 'pre', 'blockquote', 'img', 'h1',
             'h2', 'h3', 'h4', 'h5', 'h6',
             'ul', 'ol', 'li', 'dl', 'dt', 'dd']
-        article_cleaner.remove_unknown_tags = False
+        article_cleaner.remove_unknown_tags = True
+        article_cleaner.safe_attrs_only = True
+        article_cleaner.safe_attrs = [
+            'abbr', 'accesskey', 'alt', 'axis', 'cite', 'cols', 'colspan',
+            'datetime', 'dir', 'headers', 'height', 'href', 'id', 'label',
+            'rel', 'rows', 'rowspan', 'size', 'span', 'src', 'summary',
+            'target', 'title', 'width']
         return article_cleaner.clean_html(node)
 
     @classmethod
