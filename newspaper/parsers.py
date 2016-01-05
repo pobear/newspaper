@@ -68,7 +68,7 @@ class Parser(object):
             'em', 'i', 'tt', 'code', 'pre', 'blockquote', 'img', 'h1',
             'h2', 'h3', 'h4', 'h5', 'h6',
             'ul', 'ol', 'li', 'dl', 'dt', 'dd']
-        article_cleaner.remove_unknown_tags = True
+        article_cleaner.remove_unknown_tags = False
         article_cleaner.safe_attrs_only = True
         article_cleaner.safe_attrs = [
             'abbr', 'accesskey', 'alt', 'axis', 'cite', 'cols', 'colspan',
